@@ -10,8 +10,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY bot/ .
 
-COPY .env .
-
 WORKDIR /app
 
 CMD ["python3", "-u", "main.py"]
