@@ -10,13 +10,7 @@ from aiogram.enums import ParseMode
 from src.utils import settings
 from src.handlers import router as main_router
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - [%(levelname)s] - %(name)s - "
-    "(%(filename)s).%(funcName)s(%(lineno)d) - %(message)s",
-)
 
-logger = logging.getLogger(__name__)
 
 
 async def bot_startup(bot: Bot):
@@ -29,6 +23,14 @@ async def bot_shutdown(bot: Bot):
 
 async def main():
     load_dotenv()
+
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s - [%(levelname)s] - %(name)s - "
+               "(%(filename)s).%(funcName)s(%(lineno)d) - %(message)s",
+    )
+
+    logger = logging.getLogger(__name__)
 
     bot = Bot(
         token=settings.bot_token,
